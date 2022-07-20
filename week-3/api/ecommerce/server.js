@@ -36,6 +36,8 @@ app.get("/suppliers", async (req, res) => {
 
 // Load all the product names along with their supplier names
 app.get("/products", async (req, res) => {
+  const name=req.query.name;
+  const query=name? `select products.product_name,suppliers.supplier_name from products INNER join suppliers on products.supplier_id=suppliers.id where products.product_name LIKE '%${name}'`:  "select products.product_name,suppliers.supplier_name from products INNER join suppliers on products.supplier_id=suppliers.id"
   try {
     const selectProducts = await pool.query(
       "select products.product_name,suppliers.supplier_name from products INNER join suppliers on products.supplier_id=suppliers.id"
