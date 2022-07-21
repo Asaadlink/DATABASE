@@ -7,7 +7,7 @@ const PORT = 4000;
 const app = express();
 
 const pool = new Pool({
-  user: "postgres",
+  user: "asaadlink",
   host: "localhost",
   database: "cyf_commerce",
   password: "",
@@ -56,7 +56,7 @@ app.get("/products", function (req, res) {
   );
 });
 
-//---------------------//
+//-----------------------------------------------------------------------//
 
 app.get("/products", async (req, res) => {
   try {
